@@ -19,7 +19,6 @@ import HomeView from './views/HomeView.vue';
   </header>
 
   <main class="content">
-    <HomeView />
     <RouterView />
   </main>
 </template>

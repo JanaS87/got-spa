@@ -43,7 +43,7 @@ main {
 
 hr {
   border: 1px solid #D4AF37;
-  width: 100%;
+  width: 70%;
   margin-top: 2rem;
   margin-bottom: 2rem;
   opacity: 0.3;
@@ -54,7 +54,7 @@ hr {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   text-align: center;
-  width: 100%;
+  max-width: 30%;
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
