@@ -5,7 +5,7 @@ interface Person {
   slug: string;
   name: string;
   house: House;
-  quotes: Quote;
+  quotes: string[];
 }
 
 interface House {
@@ -13,10 +13,7 @@ interface House {
   name: string;
 }
 
-interface Quote {
-  sentence: string;
-  character: string;
-}
+
 
 export default {
     name: 'PersonDetailsView',
@@ -24,44 +21,50 @@ export default {
       return {
         person: null as Person | null,
         quotes: [] as string[],
-        house: null as House | null,
       };
     },
     async created() {
       const personId = this.$route.params.personId;
       try {
         const response = await axios.get(`https://api.gameofthronesquotes.xyz/v1/character/${personId}`);
+        const characterData = response.data[0];
         console.log("data: ", response.data);
-        this.person = Array.isArray(response.data) ? response.data[0] : response.data;
-       // this.quotes = Array.isArray(response.data) ? response.data[0].quotes : response.data.quotes;
-       this.quotes = this.person?.quotes.slice(0, 5);
-        this.house = Array.isArray(response.data) ? response.data[0].house : response.data.house;
-        
+        this.person = characterData;
+
+       this.quotes = this.shuffleQuotes(characterData.quotes).slice(0, 5); 
+
       } catch (error) {
         console.error('Error fetching person details:', error);
       }
     },
     methods: {
-      async fetchRandomQuotes() {
-        if(this.person) {
-          try {
-            const response = await axios.get(`https://api.gameofthronesquotes.xyz/v1/random/character/${this.person.slug}`);
-            console.log("data: ", response.data);
-            this.quotes = response.data.slice(0, 5);
-            
-          } catch (error) {
-            console.error('Error fetching random quotes:', error);
-          
-        }
-      }
-    }
-}
+      // chatgpt
+      shuffleQuotes(quotesArray: string[]) {
+  if (!quotesArray) return [];
 
+  for (let i = quotesArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [quotesArray[i], quotesArray[j]] = [quotesArray[j], quotesArray[i]];
+  }
+  return quotesArray;
+},
+      async fetchRandomQuotes() {
+        if(this.person && this.person.quotes) {
+          try {
+            const response = await axios.get(`https://api.gameofthronesquotes.xyz/v1/random/${this.person.slug}`);
+            console.log("data: ", response.data);
+            this.quotes = this.shuffleQuotes([...this.person.quotes]).slice(0, 5);
+              } catch (error) {
+            console.error('Error fetching random quotes:', error);
+        }  
+      }
+    }, 
+  }
 }
 </script>
 
 <template>
-    <div class="person-details">
+    <div class="person-details" v-if="person && person.house">
         <div v-if="person">
             <h1>{{ person.name }}</h1>
             <div class="infos">
