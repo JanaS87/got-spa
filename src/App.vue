@@ -37,6 +37,11 @@ header {
   z-index: 100;
 }
 
+header h1 {
+  font-family: 'GOT';
+  color: #952323;
+}
+
 .content {
   padding-top: 1rem;	 
 }
@@ -47,21 +52,26 @@ nav {
   text-align: center;
   margin-top: 1rem;
   margin-bottom: 2rem;
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+  font-family:Arial, Helvetica, sans-serif
 }
 
 nav a {
   display: inline-block;
   padding: 0 1rem;
+  color: #D4AF37;
+  text-decoration: none;
+  font-size: 1.6rem;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
-nav a:first-of-type {
-  border: 0;
+nav a:hover {
+  color: #EEF5FF;
 }
 
-
+nav a.router-link-active {
+  color: #EEF5FF;
+  text-decoration: underline;
+}
 
 </style>
