@@ -36,8 +36,8 @@ export default {
 <template>
   <div class="persons">
     <ul>
-      <li class="person-card" v-for="person in persons" :key="person.slug">
-        <RouterLink :to="'/persondetails/' + person.slug">
+      <li class="person-card" id="crown" v-for="person in persons" :key="person.slug">
+        <RouterLink id="crown" :to="'/persondetails/' + person.slug">
           {{ person.name }} - {{ person.house ? person.house.name : 'unknown' }} 
         </RouterLink> 
       </li>
@@ -85,6 +85,10 @@ export default {
 .person-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+#crown {
+  cursor: url("/krone.png"), pointer;
 }
 
 </style>

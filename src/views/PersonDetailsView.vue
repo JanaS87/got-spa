@@ -79,7 +79,7 @@ export default {
                     {{ quote }}
                 </li>
             </ul>
-            <button type="button" @click="fetchRandomQuotes" >Load Random Quotes</button>
+            <button type="button" id="crown" @click="fetchRandomQuotes" >Load Random Quotes</button>
           </div>
           </div>
         </div>
@@ -87,7 +87,7 @@ export default {
             <p>Person not found</p>
         </div>  
     </div>
-    <button type="button" @click="$router.go(-1)">Back</button>
+    <button type="button" id="crown" @click="$router.go(-1)">Back</button>
 </template>
 
 <style scoped>
@@ -132,5 +132,9 @@ text-align: right;
   max-width: 90%; /* Begrenzt die maximale Breite des Zitat-Blocks */
   margin-left: auto; /* Zentriert den Block innerhalb des Elternelements */
   margin-right: auto; /* Zentriert den Block innerhalb des Elternelements */
+}
+
+#crown {
+  cursor: url("/krone.png"), pointer;
 }
 </style>
