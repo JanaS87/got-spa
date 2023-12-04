@@ -29,8 +29,8 @@ export default {
 <template>
   <div class="houses">
     <ul>
-      <li class="house-card" v-for="house in houses" :key="house.slug">
-        <RouterLink :to="'/housedetails/' + house.slug">
+      <li class="house-card" id="crown"  v-for="house in houses" :key="house.slug">
+        <RouterLink id="crown" :to="'/housedetails/' + house.slug">
   {{ house.name }}
 </RouterLink>
         
@@ -78,6 +78,10 @@ export default {
 .house-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+#crown {
+  cursor: url("/krone.png"), pointer;
 }
 
 </style>
