@@ -36,8 +36,8 @@ export default {
 <template>
     <div class="house-details">
       <div v-if="house">
-        <h1>{{ house.name }}</h1>
-        <h2>Members</h2>
+        <h2>{{ house.name }}</h2>
+        <h3>Members</h3>
         <ul>
           <li v-for="member in house.members" :key="member.slug">
             {{ member.name }}
@@ -48,5 +48,38 @@ export default {
         <p>House not found</p>
       </div>
     </div>
-    <button type="button" @click="$router.go(-1)">Back</button>
+    <button class="btn" id="crown" type="button" @click="$router.go(-1)">Back</button>
 </template>
+
+<style scoped>
+.house-details {
+  margin: 2rem;
+}
+
+.house-details h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.house-details h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.9rem;
+  text-align: center;
+}
+
+.house-details ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+}
+
+.house-details li {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+#crown {
+  cursor: url("/krone.png"), pointer;
+}
+
+</style>
