@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HomeView from './views/HomeView.vue';
+import { RouterLink, RouterView } from 'vue-router';
 </script>
 
 <template>
@@ -43,34 +42,6 @@ header h1 {
 
 .content {
   padding-top: 1rem;	 
-}
-
-nav {
-  width: 100%;
-  font-size: 20px;
-  text-align: center;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  font-family:Arial, Helvetica, sans-serif
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  color: #D4AF37;
-  text-decoration: none;
-  font-size: 1.6rem;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: #EEF5FF;
-}
-
-nav a.router-link-active {
-  color: #EEF5FF;
-  text-decoration: underline;
 }
 
 </style>

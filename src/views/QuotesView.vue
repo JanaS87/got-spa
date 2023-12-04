@@ -93,27 +93,8 @@ export default {
   display: flex;
   justify-content: flex-end;
 }
-.btn {
-  background-color: #ccc;
-  color: #000;
-  border-radius: 8px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  margin-bottom: 1rem;
-  transition: transform 0.2s ease-in-out;
-  text-align: center;
-  width: auto;
-  margin-bottom: 1rem;
-  margin-left: auto;
-  font-size: 0.9rem;
-}
 
 #crown {
   cursor: url("/krone.png"), pointer;
-}
-.btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-  
 }
 </style>
