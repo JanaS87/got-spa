@@ -26,7 +26,7 @@ import { RouterLink, RouterView } from 'vue-router';
 
 header {
   line-height: 1.5;
-  font-size: 4rem;
+  font-size: 4.4rem;
   font-weight: 400;
   text-align: center;
   top: 0;
@@ -39,6 +39,14 @@ header h1 {
   font-family: 'GOT';
   color: #952323;
 }
+
+@media screen and (max-width: 1920px) {
+  header {
+    font-size: 3.2rem;
+  }
+  
+}
+
 
 .content {
   padding-top: 1rem;	 

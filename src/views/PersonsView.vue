@@ -71,13 +71,13 @@ export default {
 }
 
 .searchbar {
-  width: 35%;
+  width: 20%;
   height: 30px;
   border-radius: 4px;
   border: none;
   outline: none;
   padding: 0 1rem;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-family: Arial, Helvetica, sans-serif;
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(10px); 
@@ -86,31 +86,58 @@ export default {
 
 .persons {
   display: flex;
-  flex-wrap: wrap;
-  padding: 0;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  width: 100%;
 }
 
 .persons ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   list-style: none;
-  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 4%;
 }
 
 .person-card {
-  background-color: #ccc;
-  color: #000;
-  border-radius: 8px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px); 
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
   margin-bottom: 1rem;
-  transition: transform 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
   text-align: center;
-  flex: 1 1 48%;
-  max-width: 38%;
-  margin-bottom: 1rem;
+  color: black; 
+  position: relative;
+  overflow: hidden; 
+  width: 32.7%;
+  margin: 10px;
+}
+
+/* Pseudo-Element für den Hover-Effekt */
+.person-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #952323; 
+  transform: scale(0);
+  transition: transform 0.3s ease-in-out;
+  z-index: -1;
+}
+
+/* Hover-Effekt */
+.person-card:hover::before {
+  transform: scale(1);
 }
 
 .person-card a {
@@ -119,9 +146,13 @@ export default {
 }
 
 .person-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  color: white; 
 }
+
+.person-card a {
+  color: inherit;
+  text-decoration: none;
+} 
 
 #crown {
   cursor: url("/krone.png"), pointer;

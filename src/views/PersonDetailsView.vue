@@ -14,7 +14,6 @@ interface House {
 }
 
 
-
 export default {
     name: 'PersonDetailsView',
     data() {
@@ -75,11 +74,13 @@ export default {
           <div class="quotes">
             <h2>Quotes</h2>
             <ul>
-                <li v-for="(quote, index) in quotes" :key="index">
+                <li class="quote" v-for="(quote, index) in quotes" :key="index">
+                  <blockquote>
                     {{ quote }}
+                  </blockquote>
                 </li>
             </ul>
-            <button type="button" id="crown" @click="fetchRandomQuotes" >Load Random Quotes</button>
+            <button type="button" class="btn loading" id="crown" @click="fetchRandomQuotes" >Load Random Quotes</button>
           </div>
           </div>
         </div>
@@ -87,7 +88,7 @@ export default {
             <p>Person not found</p>
         </div>  
     </div>
-    <button type="button" id="crown" @click="$router.go(-1)">Back</button>
+    <button type="button" class="btn" id="crown" @click="$router.go(-1)">Back</button>
 </template>
 
 <style scoped>
@@ -103,10 +104,20 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  margin-top: 3rem;
 }
 
 .house {
   width: 30%;
+}
+
+.house h2 {
+  font-size: 2rem;
+  text-decoration: underline;
+}
+
+.house p {
+  font-size: 1.4rem;
 }
 
 .quotes {
@@ -116,7 +127,9 @@ text-align: right;
 
 .quotes h2 {
   text-align: right;
+  font-size: 2rem;
   margin-right: 5%;
+  text-decoration: underline;
 }
 
 .quotes ul {
@@ -124,14 +137,36 @@ text-align: right;
   padding: 0;
 }
 
-.quotes li {
-  border-right: 3px solid #ccc; /* Ein vertikaler Balken auf der linken Seite für Stil */
-  margin: 0.5em 0; /* Fügt oben und unten einen Rand hinzu */
-  padding: 0.5em; /* Fügt innen etwas Abstand hinzu */
-  text-align: right; /* Stellt den Text innerhalb des Zitat-Blocks linksbündig dar */
-  max-width: 90%; /* Begrenzt die maximale Breite des Zitat-Blocks */
-  margin-left: auto; /* Zentriert den Block innerhalb des Elternelements */
-  margin-right: auto; /* Zentriert den Block innerhalb des Elternelements */
+.quote blockquote {
+  font-style: italic;
+  position: relative;
+  overflow: hidden;
+  padding: 0 0 0 2em;
+  font-size: 1.4rem;
+  quotes: "“" "”" "‘" "’";
+}
+
+.quote blockquote:before {
+  content: open-quote;
+}
+
+.quote blockquote:after {
+  content: close-quote;
+}
+
+.quotes li { 
+  font-size: 1.4rem;
+  padding: 0.5em; 
+  text-align: right; 
+  max-width: 90%; 
+  margin-left: auto; 
+  margin-right: 3% 
+}
+
+.loading {
+  margin-top: 2rem;
+  margin-right: 5%;
+  margin-bottom: 3rem;
 }
 
 #crown {

@@ -36,11 +36,13 @@ export default {
 <template>
     <div class="house-details">
       <div v-if="house">
-        <h2>{{ house.name }}</h2>
+        <h1>{{ house.name }}</h1>
         <h3>Members</h3>
         <ul>
-          <li v-for="member in house.members" :key="member.slug">
-            {{ member.name }}
+          <li  v-for="member in house.members" :key="member.slug">
+            <RouterLink class="member-list" :to="'/persondetails/' + member.slug">
+              {{ member.name }}
+            </RouterLink>
           </li>
         </ul>
       </div>
@@ -56,15 +58,16 @@ export default {
   margin: 2rem;
 }
 
-.house-details h2 {
+.house-details h1 {
   font-size: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .house-details h3 {
   font-size: 1.8rem;
   margin-bottom: 0.9rem;
   text-align: center;
+  text-decoration: underline;
 }
 
 .house-details ul {
@@ -76,6 +79,15 @@ export default {
 .house-details li {
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
+}
+
+.member-list {
+  text-decoration: none;
+  color: var(--vt-c-text-dark-2);
+}
+
+.member-list:hover {
+  color: #952323;
 }
 
 #crown {

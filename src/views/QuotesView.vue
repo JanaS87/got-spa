@@ -40,14 +40,16 @@ export default {
     <div class="quotes">
       <ul>
         <li class="quote" v-for="(quote, index) in quotes" :key="index">
+          <header>
+            <h1> -
+              <RouterLink class="member-list" :to="'/persondetails/' + quote.character.slug">
+              {{ quote.character.name }} -
+              </RouterLink>
+            </h1> 
+            </header>
           <blockquote>
             {{ quote.sentence }}
           </blockquote>
-            <footer> -
-              {{ quote.character.name }}  
-            </footer>
-          
-          
         </li>
       </ul>
       <div class="btn-container">	
@@ -60,16 +62,32 @@ export default {
 .quotes ul {
   list-style: none;
   padding: 0;
-  margin-top: 4%
+  margin-top: 2%
+}
+
+.quote h1 {
+  font-size: 1.4rem;
+  margin-top: 0;
+  color: var(--vt-c-text-dark-2);
+}
+
+.member-list {
+  text-decoration: none;
+  color: var(--vt-c-text-dark-2);
+}
+
+.member-list:hover {
+  color: #952323;
 }
 
 .quote blockquote {
   font-style: italic;
-  position: relative;
+  text-align: center;
   overflow: hidden;
   padding: 0 0 0 2em;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   quotes: "“" "”" "‘" "’";
+  margin-bottom: 3%;
 }
 
 .quote blockquote:before {
@@ -80,12 +98,11 @@ export default {
   content: close-quote;
 }
 
-.quote footer {
-  text-align: right;
+.quote header {
+  text-align: center;
   margin-top: 0.5em;
   font-style: normal;
   font-weight: bold;
-  margin-bottom: 5%;
   margin-top: 0;
 }
 

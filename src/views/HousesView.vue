@@ -82,7 +82,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 0;
   margin-bottom: 2rem;
   width: 100%;
 }
