@@ -31,12 +31,17 @@ export default {
       console.log(error);
     }
   },
+  watch: {
+    searchTerm(newTerm) {
+      this.searchTerm = newTerm.replace(/[^a-zA-Z ]/g, '');
+    }
+  }
 };
 </script>
 
 <template>
   <div class="searchbar-container">
-    <input type="text" class="searchbar" v-model="searchTerm" placeholder="Search house..">
+    <input type="text" maxlength="30" class="searchbar" v-model="searchTerm" placeholder="Search house..">
   </div>
   <div class="houses">
     <ul>
